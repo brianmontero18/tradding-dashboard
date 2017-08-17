@@ -1,0 +1,7 @@
+{
+  "name": "MEAN Tradding Dashboard",
+  "description": "Tradding Dashboard app using MEAN",
+  "keywords": ["MEAN", "Angular", "Node", "MongoDB"],
+  "repository": "https://github.com/brianmontero18/tradding-dashboard",
+  "addons": ["mongolab"]
+}

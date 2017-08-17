@@ -1,0 +1,39 @@
+<div class="col-lg-8 col-md-12">
+  <div class="card" >
+      <div class="card-header" data-background-color="orange">
+          <h4 class="title">Merval Index: {{mervalIndex}}</h4>
+          <p class="category">This information is updated every 5 seconds</p>
+      </div>
+      <div class="card-content table-responsive">
+          <table class="table table-hover">
+              <thead class="text-warning">
+                  <tr>
+                      <th>Stock Symbol</th>
+                      <th>Type</th>
+                      <th>Last Dividend</th>
+                      <th>Fixed Dividend</th>
+                      <th>Par Value</th>
+                      <th>Price</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let stock of stocksList">
+                      <td>{{stock.symbol}}</td>
+                      <td>{{stock.type}}</td>
+                      <td>{{stock.lastDividend}}</td>
+                      <td>{{stock.fixedDividend}}</td>
+                      <td>{{stock.parValue}}</td>
+                      <td>{{stock.price}}</td>
+                      <td class="td-actions text-right">
+                          <button type="button" rel="tooltip" title="Details"
+                            class="btn btn-primary btn-simple btn-xs" (click)="viewDetail(stock)">
+                              <i class="material-icons">details</i>
+                          </button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+<app-logro [onViewStockDetail]="onViewStockDetail"></app-logro>
