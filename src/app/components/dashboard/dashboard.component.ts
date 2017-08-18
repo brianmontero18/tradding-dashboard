@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { StockService } from './stock.service';
-import { TradeService } from '../logro/trade.service';
-import { IStock } from '../logro/stock';
-import { Trade } from '../logro/trade';
-import { LogroComponent } from '../logro/logro.component';
-import { StockDetail } from '../logro/stock.detail';
+import { IStock } from '../../models/stock';
+import { Trade } from '../../models/trade';
+import { StockDetail } from '../../models/stock.detail';
+import { TradeComponent } from '../trade/trade.component';
+import { StockService } from '../../services/stock.service';
+import { TradeService } from '../../services/trade.service';
 import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css'],
   providers: [StockService, TradeService]
 })
-export class HomeComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
   stocksList : IStock[];
   stockDetail : StockDetail;

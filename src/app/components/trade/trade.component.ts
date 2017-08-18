@@ -1,18 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { StockService } from '../home/stock.service';
-import { TradeService } from './trade.service';
-import { IStock } from './stock';
-import { Trade } from './trade';
-import { StockDetail } from '../logro/stock.detail';
-import initDemo = require('../../assets/js/charts.js');
+import { IStock } from '../../models/stock';
+import { Trade } from '../../models/trade';
+import { StockDetail } from '../../models/stock.detail';
+import { StockService } from '../../services/stock.service';
+import { TradeService } from '../../services/trade.service';
+import initDemo = require('../../../assets/js/charts.js');
 import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-logro',
-  templateUrl: './logro.component.html',
-  styleUrls: ['./logro.component.css']
+  templateUrl: './trade.component.html',
+  styleUrls: ['./trade.component.css']
 })
-export class LogroComponent implements OnInit {
+export class TradeComponent implements OnInit {
 
   logro : IStock;
   stockDetail : StockDetail;

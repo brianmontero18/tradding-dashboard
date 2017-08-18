@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import { IStock } from '../logro/stock';
+import { IStock } from '../models/stock';
 
 @Injectable()
 export class StockService {
-    private stocksUrl = 'http://localhost:8080/api/stocks';
+    private apiUrl = '/api/stocks';
 
     constructor (private http: Http) {}
 
     // get("/api/stocks")
     getAllStocks(): any {
-      return this.http.get(this.stocksUrl)
+      return this.http.get(this.apiUrl)
                  .toPromise()
                  .then(response => response.json() as IStock[])
                  .catch(this.handleError);
@@ -19,7 +19,7 @@ export class StockService {
 
     // get("/api/stocks/:symbol")
     getStockBySymbol(getStock: String): Promise<void | IStock[]> {
-      return this.http.get(this.stocksUrl + '/' + getStock)
+      return this.http.get(this.apiUrl + '/' + getStock)
                  .toPromise()
                  .then(response => response.json() as IStock[])
                  .catch(this.handleError);
@@ -27,7 +27,7 @@ export class StockService {
 
     // put("/api/stocks/:symbol")
     updateStock(symbol: string, bodyReq: IStock): Promise<void | IStock> {
-      var putUrl = this.stocksUrl + '/' + symbol;
+      var putUrl = this.apiUrl + '/' + symbol;
       return this.http.put(putUrl, bodyReq)
                  .toPromise()
                  .then(response => response.json() as IStock)

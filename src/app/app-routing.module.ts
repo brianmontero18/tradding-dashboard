@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LogroComponent } from './logro/logro.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { TradeComponent } from './components/trade/trade.component';
 
 @NgModule({
   imports: [
     RouterModule.forRoot([
-      {path: '', component: HomeComponent},
-      {path: ':id', component: LogroComponent}
+      {path: '', component: DashboardComponent},
+      {path: ':id', component: TradeComponent}
     ])
   ],
   exports: [RouterModule]

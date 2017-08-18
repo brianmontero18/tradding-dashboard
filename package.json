@@ -7,11 +7,11 @@
   "scripts": {
     "start": "concurrently --kill-others \"npm run _server:run\" \"ng serve --aot --progress=false --proxy-config proxy.conf.json\"",
     "lint:client": "ng lint",
-    "lint:server": "tslint './server/**/*.ts' -c ./server/tslint.json --fix",
+    "lint:server": "tslint './server/*.ts' -c ./server/tslint.json --fix",
     "test:client": "ng test",
     "e2e:client": "ng e2e",
     "build": "ng build --prod --sm=false --aot --output-path=dist/client && npm run _server:build",
-    "_server:run": "tsc -p ./server && concurrently \"tsc -w -p ./server\" \"nodemon dist/server/bin/www.js\" ",
+    "_server:run": "tsc -p ./server && concurrently \"tsc -w -p ./server\" \"nodemon dist/server/app.js\" ",
     "_server:build": "tsc -p ./server",
     "postinstall": "npm run build"
   },

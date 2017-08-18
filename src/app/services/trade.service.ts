@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import { Trade } from './trade';
+import { Trade } from '../models/trade';
 
 @Injectable()
 export class TradeService {
-    private tradesUrl = 'http://localhost:8080/api/trades';
+    private apiUrl = '/api/trades';
 
     constructor (private http: Http) {}
 
     // get("/api/trades")
     getAllTrades(): Promise<void | Trade[]> {
-      return this.http.get(this.tradesUrl)
+      return this.http.get(this.apiUrl)
                  .toPromise()
                  .then(response => response.json() as Trade[])
                  .catch(this.handleError);
@@ -19,7 +19,7 @@ export class TradeService {
 
     // get("/api/trades/:stockSymbol")
     getTradesByStock(getTrade: String): Promise<void | Trade[]> {
-      return this.http.get(this.tradesUrl + '/' + getTrade)
+      return this.http.get(this.apiUrl + '/' + getTrade)
                  .toPromise()
                  .then(response => response.json() as Trade[])
                  .catch(this.handleError);
